@@ -1,16 +1,16 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "radiant-if_params_tags-extension/version"
+require "radiant-if_param_tags-extension"
 
 Gem::Specification.new do |s|
-  s.name        = "radiant-if_params_tags-extension"
-  s.version     = RadiantIfParamsTagsExtension::VERSION
+  s.name        = "radiant-if_param_tags-extension"
+  s.version     = RadiantIfParamTagsExtension::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Benny Degezelle"]
   s.email       = ["hi@monkeypatch.be"]
-  s.homepage    = "http://github.com/jomz/radiant-if_params_tags-extension"
-  s.summary     = %q{If Params Tags for Radiant CMS}
-  s.description = %q{Makes Radiant better by adding if_params_tags!}
+  s.homepage    = RadiantIfParamTagsExtension::URL
+  s.summary     = RadiantIfParamTagsExtension::SUMMARY
+  s.description = RadiantIfParamTagsExtension::DESCRIPTION
   
   ignores = if File.exist?('.gitignore')
     File.read('.gitignore').split("\n").inject([]) {|a,p| a + Dir[p] }
@@ -21,9 +21,4 @@ Gem::Specification.new do |s|
   s.test_files    = Dir['test/**/*','spec/**/*','features/**/*'] - ignores
   # s.executables   = Dir['bin/*'] - ignores
   s.require_paths = ["lib"]
-  
-  s.post_install_message = %{
-  Add this to your radiant project with:
-    config.gem 'radiant-if_params_tags-extension', :version => '~>#{RadiantIfParamsTagsExtension::VERSION}'
-  }
 end
