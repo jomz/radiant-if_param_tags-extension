@@ -15,7 +15,7 @@ module IfParamTags
     raise TagError "A name attribute must be specified for if_param!" if name.blank?
     if params[name]
       regexp = build_regexp_for(tag, "matches") if tag.attr["matches"]
-      tag.expand if ( tag.attr["matches"].nil? || params[name].matches(regexp) )
+      tag.expand if ( tag.attr["matches"].nil? || params[name].match(regexp) )
     end
   end
   
@@ -32,7 +32,7 @@ module IfParamTags
     raise TagError "A name attribute must be specified for unless_param!" if name.blank?
     if params[name]
       regexp = build_regexp_for(tag, "matches") if tag.attr["matches"]
-      tag.expand unless ( tag.attr["matches"].nil? || params[name].matches(regexp) )
+      tag.expand unless ( tag.attr["matches"].nil? || params[name].match(regexp) )
     else
       tag.expand
     end
